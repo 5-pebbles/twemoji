@@ -18,14 +18,17 @@ fn is_emoji_start(ch: &char) -> bool {
     matches!(ch,
         '\u{1F300}'..='\u{1F9FF}' |
         '\u{2600}'..='\u{26FF}' |
-        '\u{2700}'..='\u{27BF}' |
+        // '\u{2700}'..='\u{27BF}' |
         '\u{1F100}'..='\u{1F1FF}' |
         '\u{1F200}'..='\u{1F2FF}'
     )
 }
 
 fn is_emoji_modifier(ch: &char) -> bool {
-    matches!(ch, '\u{1F3FB}'..='\u{1F3FF}' | '\u{FE0F}' | '\u{20E3}')
+    matches!(
+        ch,
+        '\u{1F3FB}'..='\u{1F3FF}' | '\u{FE0F}' | '\u{20E3}' | '\u{200D}'
+    )
 }
 
 fn is_emoji_component(ch: &char) -> bool {
